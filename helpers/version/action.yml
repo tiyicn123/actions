@@ -100,6 +100,8 @@ runs:
           sed -i "s@^URL_COMMUNITY_ADDONS =.*@URL_COMMUNITY_ADDONS = "https://gitee.com/smart-assistant/repository"@g" supervisor/store/validate.py
           sed -i "s@^URL_ESPHOME =.*@URL_ESPHOME = "https://gitee.com/smart-assistant/esphome"@g" supervisor/store/validate.py
           sed -i "s@^URL_MUSIC_ASSISTANT =.*@URL_MUSIC_ASSISTANT = "https://gitee.com/smart-assistant/music-assistant"@g" supervisor/store/validate.py
+          cat supervisor/const.py
+          cat supervisor/store/validate.py
         fi
 
     - shell: bash

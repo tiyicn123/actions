@@ -103,8 +103,10 @@ runs:
           sed -i "s@https://9c6ea70f49234442b4746e447b24747e@o427061.ingest.sentry.io/5370612@https://f6c62aef84b91505ea9e1294712ebc3f@o4508234686267392.ingest.de.sentry.io/4508284301475920@g" supervisor/utils/sentry.py
           sed -i "s@ghcr.io/home-assistant/{arch}-hassio-supervisor@ghcr.io/${{ github.repository_owner }}/{arch}-hassio-supervisor@g" build.yaml
           sed -i "s@https://github.com/home-assistant/supervisor@https://github.com/${{ github.repository_owner }}/supervisor@g" build.yaml
+          sed -i "s@https://github.com/home-assistant/supervisor@https://github.com/${{ github.repository_owner }}/supervisor@g" pyproject.toml
           sed -i '$# Install base$i\RUN ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime\n\nRUN echo "Asia/Shanghai" > /etc/timezone\n' Dockerfile
           cat Dockerfile
+          cat pyproject.toml
           cat build.yaml
         fi
 

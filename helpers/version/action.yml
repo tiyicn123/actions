@@ -89,7 +89,6 @@ runs:
     - shell: bash
       env:
         INPUTS_TYPE: ${{ inputs.type }}
-        INPUTS_SOURCE: ${{ inputs.source }}
       run: |
         if [[ "$INPUTS_TYPE" == "supervisor" ]]; then
           sed -i "s/^SUPERVISOR_VERSION =.*/SUPERVISOR_VERSION = \"${{ steps.version.outputs.version }}\"/g" supervisor/const.py
@@ -106,7 +105,7 @@ runs:
           sed -i "s@https://github.com/home-assistant/supervisor@https://github.com/${{ github.repository_owner }}/supervisor@g" build.yaml
           sed -i "s@https://github.com/home-assistant/supervisor@https://github.com/${{ github.repository_owner }}/supervisor@g" pyproject.toml
           sed -i "/Install base/i RUN ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime\n\nRUN echo "Asia/Shanghai" > /etc/timezone\n" Dockerfile
-          echo $INPUTS_SOURCE
+          echo ${{ inputs.source }}
         fi
 
     - shell: bash

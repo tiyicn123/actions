@@ -106,6 +106,7 @@ runs:
           sed -i "s@https://github.com/home-assistant/supervisor@https://github.com/${{ github.repository_owner }}/supervisor@g" pyproject.toml
           sed -i "/Install base/i RUN ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime\n\nRUN echo "Asia/Shanghai" > /etc/timezone\n" Dockerfile
           echo ${{ inputs.source }}
+          echo ${{ env.REPLACE_GHCR }}
         fi
 
     - shell: bash

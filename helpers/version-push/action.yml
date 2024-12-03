@@ -54,7 +54,7 @@ runs:
         INPUTS_VERSION: ${{ inputs.version }}
       run: |
         cd /tmp/version
-        git commit -am "Bump ${{ steps.validate-input.outputs.key-description }} to $INPUTS_VERSION"
+        git commit -am "将${{ steps.validate-input.outputs.key-description }}升级到$INPUTS_VERSION"
         git push
 
     - shell: bash
